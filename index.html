@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Mini MCMonday</title>
+  <meta name="description" content="">
+  <meta name="author" content="Sprock">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="column" style="margin-top: 25%">
+        <h1 style="text-align: center;">Mini Minecraft Monday</h1>
+        <h1 id="countdown" style="text-align: center;"><bold id="days">00</bold><sub style="font-size: 20px;">D</sub> <bold id="hours">00</bold><sub style="font-size: 20px;">H</sub> <bold id="minutes">00</bold><sub style="font-size: 20px;">M</sub> <bold id="seconds">00</bold><sub style="font-size: 20px;">S</sub></h1>
+        
+        <br>
+        <br>
+        <br>
+        <div style="font-size: 20px;"><center><a href="https://discord.gg/XUGvWsd" target="_blank">Discord</a> | <a href="https://twitter.com/SprockPls" target="_blank">Twitter</a></center></div>
+        <hr>
+        <h5>What?</h5>
+        <p>We'll host 4 rounds of surivival games where the winner will recieve $40</p>
+
+        <h5>When?</h5>
+        <p>On Monday 4pm EST</p>
+
+
+        <h5>Where?</h5>
+        <p>Connect to <a>mcmonday.com</a> on Minecraft Java 1.8 to 1.15</p>
+
+        <h5>Why?</h5>
+        <p>For fun man</p>
+
+        <h5>Who?</h5>
+        <p>Currently this mini event is unaffilated with Keem, current Sprock is hosting the server</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+      var daysElm = document.getElementById("days");
+      var hoursElm = document.getElementById("hours");
+      var minutesElm = document.getElementById("minutes");
+      var secondsElm = document.getElementById("seconds");
+      var countdownElm = document.getElementById("countdown");
+
+      var countTill = 1589227200000;
+      updateTime();
+      setInterval(updateTime, 500);
+
+      function updateTime()
+      {
+         var now = Date.now();
+
+         var currentTime = countTill - now;
+         if(currentTime <= 0)
+         {
+            countdownElm.innerHTML = "CONNECT TO <a>MCMONDAY.com</a> NOW!"
+         }
+
+         var rawSeconds = Math.floor(currentTime / (1000));
+         var rawMinutes = Math.floor(rawSeconds / (60));
+         var rawHours = Math.floor(rawMinutes / (60));
+         var rawDays = Math.floor(rawHours / (24));
+
+         var seconds = Math.floor(rawSeconds % 60);
+         var minutes = Math.floor(rawMinutes % 60);
+         var hours = Math.floor(rawHours % 24);
+         var days = Math.floor(rawDays);
+         
+
+         secondsElm.innerHTML = seconds;
+         minutesElm.innerHTML = minutes;
+         hoursElm.innerHTML = hours;
+         daysElm.innerHTML = days;
+      }
+  </script>
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
